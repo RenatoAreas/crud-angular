@@ -1,0 +1,59 @@
+<div class="container">
+  <h2>Login</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline" class="campo">
+      <mat-label>Login (e-mail)</mat-label>
+      <input
+        matInput
+        type="email"
+        formControlName="login"
+        placeholder="Digite seu e-mail"
+      />
+      <mat-error *ngIf="form.get('login')?.hasError('required')">
+        O campo é obrigatório.
+      </mat-error>
+      <mat-error *ngIf="form.get('login')?.hasError('email')">
+        Digite um e-mail válido.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="campo">
+      <mat-label>Senha</mat-label>
+      <input
+        matInput
+        type="password"
+        formControlName="senha"
+        placeholder="Digite sua senha"
+      />
+      <mat-error *ngIf="form.get('senha')?.hasError('required')">
+        A senha é obrigatória.
+      </mat-error>
+      <mat-error *ngIf="form.get('senha')?.hasError('minlength')">
+        A senha deve ter no mínimo 6 caracteres.
+      </mat-error>
+    </mat-form-field>
+
+    <div class="button-container">
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="form.invalid || isLoading"
+      >
+        <ng-container *ngIf="!isLoading">Entrar</ng-container>
+        <ng-container *ngIf="isLoading">
+          <mat-progress-spinner
+            diameter="24"
+            mode="indeterminate"
+            color="accent"
+          ></mat-progress-spinner>
+        </ng-container>
+      </button>
+    </div>
+  </form>
+
+   <div *ngIf="message" [ngClass]="['mensagem', messageType]">
+    {{ message }}
+  </div>
+</div>

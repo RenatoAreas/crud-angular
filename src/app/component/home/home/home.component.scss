@@ -1,0 +1,47 @@
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.campo {
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    min-width: 120px;
+    height: 40px;
+  }
+
+  .mensagem {
+  text-align: center;
+  font-weight: 500;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 12px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.mensagem.success {
+  background-color: #e6f4ea;
+  color: #256029;
+  border: 1px solid #256029;
+}
+
+.mensagem.error {
+  background-color: #fdecea;
+  color: #b71c1c;
+  border: 1px solid #b71c1c;
+}
+}

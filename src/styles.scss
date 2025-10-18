@@ -1,1 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+// Define as paletas de cores
+$primary: mat.define-palette(mat.$indigo-palette);
+$accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$warn: mat.define-palette(mat.$red-palette);
+
+// Cria o tema claro
+$meu-tema: mat.define-light-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn
+  )
+));
+
+// Aplica o tema globalmente
+@include mat.all-component-themes($meu-tema);
+
+// Ajustes visuais globais
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #f5f6fa;
+  font-family: 'Roboto', Arial, sans-serif;
+  color: #222;
+}
+
+.mat-mdc-text-field-wrapper {
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+input::placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+button[mat-raised-button] {
+  text-transform: none;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+h2 {
+  color: mat.get-color-from-palette($primary, 500);
+}
