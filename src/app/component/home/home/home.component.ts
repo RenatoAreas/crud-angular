@@ -7,7 +7,6 @@
   import { CommonModule } from '@angular/common';
   import { Router } from '@angular/router';
   import {
-    MatProgressSpinnerModule,
     MatProgressSpinner,
   } from '@angular/material/progress-spinner';
   import { FormLoginService } from '../../../services/form-login/form-login.service';
